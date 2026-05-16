@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bindora – Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg-top: #f8fcff;
+      --bg-mid: #e9f6ff;
+      --bg-bottom: #bfe4ff;
+      --card-bg: rgba(255, 255, 255, 0.82);
+      --card-bg-strong: rgba(255, 255, 255, 0.94);
+      --accent: #2563eb;
+      --accent-dark: #0f3ea8;
+      --accent-soft: rgba(37, 99, 235, 0.10);
+      --gold: #f8b41c;
+      --gold-soft: rgba(248, 180, 28, 0.16);
+      --text-main: #102033;
+      --text-muted: #5d7086;
+      --border-subtle: rgba(37, 99, 235, 0.16);
+      --shadow: 0 28px 90px rgba(37, 99, 235, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.92) 26%, rgba(235,247,255,0.88) 48%, rgba(198,231,255,0.78) 100%),
+        linear-gradient(180deg, var(--bg-top), var(--bg-mid) 52%, var(--bg-bottom));
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      left: -10%;
+      right: -10%;
+      height: 42vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.8;
+      filter: blur(0.2px);
+      background:
+        radial-gradient(circle at 18% 60%, rgba(255,255,255,0.95) 0 2px, transparent 3px),
+        radial-gradient(circle at 42% 38%, rgba(255,255,255,0.9) 0 1px, transparent 3px),
+        radial-gradient(circle at 72% 62%, rgba(255,255,255,0.85) 0 2px, transparent 4px),
+        linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.24) 35%, rgba(255,255,255,0.55) 48%, rgba(255,255,255,0.18) 68%, transparent 100%);
+      border-radius: 50%;
+      transform: rotate(-7deg);
+    }
+
+    body::before {
+      bottom: -16vh;
+    }
+
+    body::after {
+      bottom: -24vh;
+      transform: rotate(8deg);
+      opacity: 0.45;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 36px 16px 56px;
+    }
+
+    .hero {
+      position: relative;
+      margin-bottom: 18px;
+      padding: 26px 22px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.86), rgba(235,247,255,0.72)),
+        radial-gradient(circle at top right, rgba(248,180,28,0.14), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(37,99,235,0.12), transparent 42%);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: auto -8% -36% -8%;
+      height: 55%;
+      background:
+        linear-gradient(125deg, transparent 0%, rgba(37,99,235,0.08) 22%, rgba(255,255,255,0.62) 52%, rgba(37,99,235,0.09) 80%, transparent 100%);
+      border-radius: 50%;
+      transform: rotate(-5deg);
+    }
+
+    .brand-row {
+      position: relative;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .app-icon {
+      width: 72px;
+      height: 72px;
+      flex: 0 0 auto;
+      border-radius: 22px;
+      background: #ffffff;
+      border: 1px solid rgba(37, 99, 235, 0.16);
+      box-shadow: 0 14px 38px rgba(37, 99, 235, 0.18);
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .app-icon .folder {
+      width: 45px;
+      height: 31px;
+      border: 5px solid var(--accent);
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .app-icon .folder::before {
+      content: "";
+      position: absolute;
+      top: -13px;
+      left: -5px;
+      width: 28px;
+      height: 13px;
+      border: 5px solid var(--accent);
+      border-bottom: 0;
+      border-radius: 10px 10px 0 0;
+      background: #fff;
+    }
+
+    .bolt {
+      position: absolute;
+      width: 15px;
+      height: 28px;
+      background: linear-gradient(180deg, #ffd75a, #ff9f0a);
+      clip-path: polygon(58% 0, 18% 52%, 48% 52%, 34% 100%, 84% 40%, 54% 40%);
+      filter: drop-shadow(0 4px 7px rgba(248, 180, 28, 0.42));
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 5vw, 3.15rem);
+      line-height: 1.05;
+      margin: 0 0 8px;
+      letter-spacing: -0.045em;
+      color: var(--text-main);
+    }
+
+    .tagline {
+      max-width: 690px;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .meta-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.12);
+    }
+
+    .card {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: 24px;
+      padding: 28px 24px 32px;
+      border: 1px solid rgba(255,255,255,0.72);
+      box-shadow: 0 18px 60px rgba(37, 99, 235, 0.13);
+      backdrop-filter: blur(16px);
+    }
+
+    .card + .card {
+      margin-top: 18px;
+    }
+
+    .intro {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.96), rgba(238,248,255,0.82)),
+        radial-gradient(circle at top right, rgba(248,180,28,0.16), transparent 38%);
+    }
+
+    h2 {
+      font-size: 1.28rem;
+      margin: 4px 0 10px;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+
+    h3 {
+      font-size: 1.03rem;
+      margin: 20px 0 6px;
+      color: var(--text-main);
+    }
+
+    p {
+      margin: 6px 0 10px;
+      color: var(--text-main);
+    }
+
+    ul {
+      margin: 8px 0 10px 20px;
+      padding-left: 0;
+      color: var(--text-main);
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    a {
+      color: var(--accent);
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .small {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .callout {
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.09), rgba(255, 255, 255, 0.62));
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      border-radius: 18px;
+      padding: 16px;
+      margin: 16px 0 4px;
+      color: var(--text-main);
+    }
+
+    .support-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.10);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .kbd {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(37, 99, 235, 0.16);
+      background: rgba(255, 255, 255, 0.75);
+      color: var(--accent-dark);
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .mini-card {
+      background: var(--card-bg-strong);
+      border: 1px solid rgba(37, 99, 235, 0.13);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent-dark);
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--text-muted);
+      margin-top: 22px;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 22px 12px 40px;
+      }
+
+      .hero {
+        padding: 22px 18px;
+        border-radius: 24px;
+      }
+
+      .brand-row {
+        align-items: flex-start;
+      }
+
+      .app-icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 18px;
+      }
+
+      .app-icon .folder {
+        width: 36px;
+        height: 25px;
+        border-width: 4px;
+      }
+
+      .app-icon .folder::before {
+        top: -11px;
+        left: -4px;
+        width: 23px;
+        height: 11px;
+        border-width: 4px;
+        border-bottom: 0;
+      }
+
+      .bolt {
+        width: 12px;
+        height: 23px;
+      }
+
+      .card {
+        padding: 22px 16px 26px;
+        border-radius: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <header class="brand-row">
+        <div class="app-icon" aria-hidden="true">
+          <div class="folder"></div>
+          <div class="bolt"></div>
+        </div>
+
+        <div>
+          <h1>Bindora Support</h1>
+          <p class="tagline">
+            Need help with scanning, OCR, reminders, document organization, or your account?
+            We are here to help you get the most out of Bindora.
+          </p>
+          <div class="meta">
+            <span class="meta-dot"></span>
+            <span>Last updated: 16 May 2026</span>
+          </div>
+        </div>
+      </header>
+    </section>
+
+    <section class="card intro">
+      <h2>Contact support</h2>
+      <p>
+        If you need help with <strong>Bindora</strong>, please contact us using the email below.
+        To help us respond faster, include your device model, operating system version,
+        Bindora app version, and a short description of the issue.
+      </p>
+
+      <div class="callout">
+        <strong>Support email</strong><br />
+        <a class="support-email" href="mailto:vaycepro@gmail.com?subject=Bindora%20Support">
+          vaycepro@gmail.com
+        </a>
+
+        <div class="small" style="margin-top: 10px;">
+          Suggested email subjects:
+        </div>
+
+        <div class="pill-row">
+          <span class="kbd">Bug report</span>
+          <span class="kbd">Scanning issue</span>
+          <span class="kbd">OCR issue</span>
+          <span class="kbd">Reminder issue</span>
+          <span class="kbd">Feature request</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>1. Quick help</h2>
+
+      <div class="grid">
+        <div class="mini-card">
+          <strong>Scanning documents</strong>
+          <p class="small">
+            Make sure your camera permission is enabled. Place the document on a flat surface,
+            use good lighting, and avoid strong shadows for cleaner scans.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <strong>OCR and search</strong>
+          <p class="small">
+            If text recognition does not work as expected, try scanning again with a sharper image.
+            OCR quality depends on lighting, focus, and document readability.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <strong>Reminders</strong>
+          <p class="small">
+            If reminders do not appear, check that notifications are allowed for Bindora in your
+            device settings.
+          </p>
+        </div>
+
+        <div class="mini-card">
+          <strong>Document organization</strong>
+          <p class="small">
+            Use folders, tags, and clear document names to keep bills, warranties, receipts,
+            contracts, and important papers easy to find.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Common troubleshooting steps</h2>
+
+      <h3>2.1 Camera permission</h3>
+      <ul>
+        <li>Open your device settings.</li>
+        <li>Find <strong>Bindora</strong>.</li>
+        <li>Make sure camera access is enabled.</li>
+      </ul>
+
+      <h3>2.2 Notifications</h3>
+      <ul>
+        <li>Open your device notification settings.</li>
+        <li>Make sure notifications are allowed for Bindora.</li>
+        <li>If reminders still do not appear, restart your device and reopen the app.</li>
+      </ul>
+
+      <h3>2.3 OCR accuracy</h3>
+      <ul>
+        <li>Use a clear, well-lit document.</li>
+        <li>Avoid blurry photos, folded paper, reflections, and strong shadows.</li>
+        <li>For small text, try scanning closer while keeping the document fully visible.</li>
+      </ul>
+
+      <h3>2.4 Missing or hard-to-find documents</h3>
+      <ul>
+        <li>Use the search bar with a word, date, amount, issuer, or document name.</li>
+        <li>Check folders and tags if the document was moved after scanning.</li>
+        <li>If the document was recently added, reopen the app and try searching again.</li>
+      </ul>
+
+      <h3>2.5 Purchases or subscriptions</h3>
+      <ul>
+        <li>Make sure you are connected to the internet.</li>
+        <li>Close and reopen Bindora, then try again.</li>
+        <li>If available, use the <em>Restore purchases</em> option inside the app.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>3. What to include in your message</h2>
+      <p class="small">
+        To help us understand and reproduce the issue, please include:
+      </p>
+
+      <ul>
+        <li>Your device model, for example iPhone, iPad, Samsung Galaxy, or Google Pixel.</li>
+        <li>Your operating system version, for example iOS 18 or Android 15.</li>
+        <li>Your Bindora app version, for example 1.0.0.</li>
+        <li>What you were trying to do when the issue happened.</li>
+        <li>Any error message you saw.</li>
+        <li>Screenshots or a short screen recording, if possible.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>4. Privacy and data</h2>
+      <p>
+        Bindora is designed to help you keep important documents organized and easy to find.
+        We take privacy seriously and aim to keep the experience simple, transparent, and secure.
+      </p>
+
+      <p class="small">
+        Do not send sensitive documents by email unless support specifically asks for a sample
+        and you are comfortable sharing it. If needed, hide or blur personal details before sending
+        screenshots.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>5. Legal links</h2>
+
+      <p class="small">
+        Privacy Policy:
+        <a href="https://vincepaulin.github.io/bindora_privacy_policy.html">
+          https://vincepaulin.github.io/bindora_privacy_policy.html
+        </a>
+      </p>
+
+      <p class="small">
+        Terms of Use:
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">
+          https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+        </a>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>6. Contact</h2>
+      <p class="small">
+        For all support requests, bug reports, or feature suggestions, please email
+        <a href="mailto:vaycepro@gmail.com?subject=Bindora%20Support">vaycepro@gmail.com</a>.
+      </p>
+    </section>
+
+    <div class="footer">
+      Bindora — Scan, organize, search, and remember your important documents.
+    </div>
+  </main>
+</body>
+</html>
