@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plinth — Child Safety Standards</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0B0B13;
+      --bg-card: #15151F;
+      --bg-card-2: #1C1C28;
+      --purple: #7B5CF0;
+      --purple-light: #9D82F4;
+      --purple-dim: rgba(123, 92, 240, 0.15);
+      --gold: #F5A623;
+      --gold-dim: rgba(245, 166, 35, 0.12);
+      --red: #EF4444;
+      --red-dim: rgba(239, 68, 68, 0.12);
+      --red-border: rgba(239, 68, 68, 0.3);
+      --green: #22C55E;
+      --green-dim: rgba(34, 197, 94, 0.12);
+      --green-border: rgba(34, 197, 94, 0.3);
+      --text: #FFFFFF;
+      --text-secondary: #9090AA;
+      --text-muted: #5A5A72;
+      --border: rgba(255,255,255,0.07);
+      --border-purple: rgba(123,92,240,0.3);
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      font-size: 16px;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: linear-gradient(180deg, #0F0F1E 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--purple-dim);
+      border: 1.5px solid var(--border-purple);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--purple);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .logo-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .header h1 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .header-sub {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .header-sub span { color: var(--gold); }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Alert banner */
+    .alert-banner {
+      background: var(--red-dim);
+      border: 1px solid var(--red-border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .alert-icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .alert-text {
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.65;
+    }
+
+    .alert-text strong {
+      color: var(--red);
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--purple-dim);
+      border: 1px solid var(--border-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--purple);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 12px;
+    }
+
+    .card p, .card li {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .card p + p { margin-top: 12px; }
+
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card li::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--purple);
+      border-radius: 50%;
+      margin-right: 10px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .prohibited-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .prohibited-item {
+      background: var(--red-dim);
+      border: 1px solid var(--red-border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .prohibited-x {
+      color: var(--red);
+      font-size: 16px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .prohibited-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+
+    /* Report box */
+    .report-box {
+      background: var(--gold-dim);
+      border: 1px solid rgba(245, 166, 35, 0.35);
+      border-radius: var(--radius);
+      padding: 28px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .report-box-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .report-box p {
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .report-link {
+      display: inline-block;
+      background: var(--gold);
+      color: #1A0E00;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 11px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+
+    .report-link:hover { opacity: 0.9; }
+
+    .report-note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Compliance list */
+    .compliance-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .compliance-item {
+      background: var(--green-dim);
+      border: 1px solid var(--green-border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .compliance-check {
+      color: var(--green);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .compliance-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+
+    .highlight {
+      background: var(--purple-dim);
+      border: 1px solid var(--border-purple);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+
+    .highlight p {
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--purple-light);
+      margin-bottom: 4px;
+    }
+
+    .footer-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer a {
+      color: var(--purple-light);
+      text-decoration: none;
+    }
+
+    @media (max-width: 540px) {
+      .header h1 { font-size: 22px; }
+      .container { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo-badge">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <span class="logo-name">Plinth</span>
+    </div>
+    <h1>Child Safety Standards</h1>
+    <p class="header-sub">Last updated: <span>June 24, 2026</span></p>
+  </header>
+
+  <main class="container">
+
+    <div class="alert-banner">
+      <div class="alert-icon">🛡️</div>
+      <div class="alert-text">
+        <strong>Zero Tolerance for Child Exploitation</strong>
+        Plinth has a strict zero-tolerance policy toward any content that sexualizes, exploits, grooms, or endangers minors. This page describes our standards and how to report violations.
+      </div>
+    </div>
+
+    <!-- 1. Scope -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h2 class="section-title">About Plinth</h2>
+      </div>
+      <div class="card">
+        <p>Plinth is a social gaming app that allows users to track video game achievements and trophies across PlayStation, Xbox, and Steam, and share their gaming profiles with others. Users can publish reviews, build a game collection, and view friends' activity.</p>
+        <p>While Plinth is intended for users aged 13 and above, we recognize our responsibility to protect all users — especially minors — from harmful content and interactions.</p>
+      </div>
+    </section>
+
+    <!-- 2. Prohibited Content -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+        </div>
+        <h2 class="section-title">Prohibited Content &amp; Behavior</h2>
+      </div>
+
+      <div class="prohibited-grid">
+        <div class="prohibited-item">
+          <div class="prohibited-x">✕</div>
+          <div class="prohibited-label">Child Sexual Abuse Material (CSAM) of any kind</div>
+        </div>
+        <div class="prohibited-item">
+          <div class="prohibited-x">✕</div>
+          <div class="prohibited-label">Grooming, soliciting, or predatory behavior toward minors</div>
+        </div>
+        <div class="prohibited-item">
+          <div class="prohibited-x">✕</div>
+          <div class="prohibited-label">Sexual content involving or targeting minors</div>
+        </div>
+        <div class="prohibited-item">
+          <div class="prohibited-x">✕</div>
+          <div class="prohibited-label">Content that exploits, endangers, or abuses children</div>
+        </div>
+        <div class="prohibited-item">
+          <div class="prohibited-x">✕</div>
+          <div class="prohibited-label">Sharing or distributing harmful content targeting minors</div>
+        </div>
+        <div class="prohibited-item">
+          <div class="prohibited-x">✕</div>
+          <div class="prohibited-label">Any attempt to collect personal data from children under 13</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>Violations of these standards will result in immediate account termination. Where legally required, we will report violations to the appropriate national and regional authorities, including the National Center for Missing &amp; Exploited Children (NCMEC) in the United States and equivalent bodies in other jurisdictions.</p>
+      </div>
+    </section>
+
+    <!-- 3. In-App Reporting -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h2 class="section-title">How to Report a Child Safety Concern</h2>
+      </div>
+
+      <div class="card" style="margin-bottom:12px">
+        <p>If you encounter any content or behavior that you believe violates child safety, you can report it directly to our team. We treat all child safety reports as the highest priority and will act within 24 hours of receiving a report.</p>
+        <p style="margin-top:12px">When reporting, please include:</p>
+        <ul style="margin-top:10px">
+          <li>A description of the content or behavior</li>
+          <li>The username or profile link of the account involved (if applicable)</li>
+          <li>A screenshot or other evidence if available</li>
+        </ul>
+      </div>
+
+      <div class="report-box">
+        <div class="report-box-title">Report a Child Safety Issue</div>
+        <p>Send your report to our designated child safety contact. Use the subject line "Child Safety Report" so we can prioritize your message.</p>
+        <a class="report-link" href="mailto:vaycepro@gmail.com?subject=Child%20Safety%20Report">vaycepro@gmail.com</a>
+        <p class="report-note">You can also report content directly in the app by using the "Report" option on any profile or review.</p>
+      </div>
+    </section>
+
+    <!-- 4. Compliance -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h2 class="section-title">Our Commitments</h2>
+      </div>
+
+      <div class="compliance-list">
+        <div class="compliance-item">
+          <div class="compliance-check">✓</div>
+          <div class="compliance-text">We comply with all applicable laws regarding child safety, including COPPA, GDPR-K, and equivalent national regulations.</div>
+        </div>
+        <div class="compliance-item">
+          <div class="compliance-check">✓</div>
+          <div class="compliance-text">We do not knowingly collect personal data from children under the age of 13.</div>
+        </div>
+        <div class="compliance-item">
+          <div class="compliance-check">✓</div>
+          <div class="compliance-text">We will report any discovered CSAM or child exploitation to NCMEC and relevant national authorities without delay.</div>
+        </div>
+        <div class="compliance-item">
+          <div class="compliance-check">✓</div>
+          <div class="compliance-text">We provide an accessible in-app and email mechanism for users to report child safety concerns.</div>
+        </div>
+        <div class="compliance-item">
+          <div class="compliance-check">✓</div>
+          <div class="compliance-text">Accounts found to be in violation of these standards are permanently banned and may be reported to law enforcement.</div>
+        </div>
+        <div class="compliance-item">
+          <div class="compliance-check">✓</div>
+          <div class="compliance-text">We review and update these standards regularly to reflect best practices and legal requirements.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Enforcement -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h2 class="section-title">Enforcement</h2>
+      </div>
+      <div class="card">
+        <p>Upon receiving a child safety report, Plinth will:</p>
+        <ul style="margin-top:10px">
+          <li>Acknowledge the report within 24 hours</li>
+          <li>Review the reported content or account immediately</li>
+          <li>Remove any violating content and suspend or ban the offending account</li>
+          <li>Report to NCMEC or equivalent national authority if CSAM is identified</li>
+          <li>Cooperate fully with law enforcement investigations</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h2 class="section-title">Contact &amp; Designated Safety Officer</h2>
+      </div>
+      <div class="highlight">
+        <p>For all child safety concerns, reports, or questions regarding these standards, contact our designated safety officer:</p>
+        <p style="margin-top:12px">
+          <a href="mailto:vaycepro@gmail.com?subject=Child%20Safety%20Report" style="color:var(--purple-light);font-weight:600;font-size:16px;text-decoration:none">vaycepro@gmail.com</a>
+        </p>
+        <p style="margin-top:8px">Use the subject line <strong style="color:var(--text)">"Child Safety Report"</strong> to ensure your message is prioritized.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-name">Plinth</div>
+    <div class="footer-sub">
+      &copy; 2026 Plinth. All rights reserved. &nbsp;·&nbsp;
+      <a href="mailto:vaycepro@gmail.com">vaycepro@gmail.com</a>
+    </div>
+  </footer>
+
+</body>
+</html>

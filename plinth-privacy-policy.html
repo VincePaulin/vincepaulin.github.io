@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plinth — Privacy Policy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0B0B13;
+      --bg-card: #15151F;
+      --bg-card-2: #1C1C28;
+      --purple: #7B5CF0;
+      --purple-light: #9D82F4;
+      --purple-dim: rgba(123, 92, 240, 0.15);
+      --gold: #F5A623;
+      --gold-dim: rgba(245, 166, 35, 0.12);
+      --text: #FFFFFF;
+      --text-secondary: #9090AA;
+      --text-muted: #5A5A72;
+      --border: rgba(255,255,255,0.07);
+      --border-purple: rgba(123,92,240,0.3);
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      font-size: 16px;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(180deg, #0F0F1E 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .logo-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--purple-dim);
+      border: 1.5px solid var(--border-purple);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: var(--purple);
+    }
+
+    .logo-name {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .header-sub {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    .header-sub span {
+      color: var(--gold);
+    }
+
+    /* Nav */
+    .nav-strip {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .nav-strip a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+    }
+
+    .nav-strip a:hover {
+      color: var(--purple-light);
+      border-color: var(--border-purple);
+      background: var(--purple-dim);
+    }
+
+    /* Main content */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--purple-dim);
+      border: 1px solid var(--border-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--purple);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.2px;
+    }
+
+    .section-anchor {
+      display: block;
+      position: relative;
+      top: -80px;
+      visibility: hidden;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 12px;
+    }
+
+    .card p, .card li {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .card p + p {
+      margin-top: 12px;
+    }
+
+    .card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card li::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--purple);
+      border-radius: 50%;
+      margin-right: 10px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    /* Data type grid */
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .data-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+
+    .data-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 10px;
+    }
+
+    .data-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .data-card li {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .data-card li::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    /* Platform badges */
+    .platform-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .badge-ps {
+      background: rgba(0, 120, 255, 0.15);
+      border: 1px solid rgba(0, 120, 255, 0.3);
+      color: #4D9CFF;
+    }
+
+    .badge-xbox {
+      background: rgba(16, 124, 16, 0.15);
+      border: 1px solid rgba(16, 124, 16, 0.3);
+      color: #4CAF50;
+    }
+
+    .badge-steam {
+      background: rgba(100, 150, 200, 0.12);
+      border: 1px solid rgba(100, 150, 200, 0.25);
+      color: #88AABF;
+    }
+
+    .badge-affiliate {
+      background: var(--gold-dim);
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      color: var(--gold);
+    }
+
+    /* Highlight box */
+    .highlight {
+      background: var(--purple-dim);
+      border: 1px solid var(--border-purple);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+
+    .highlight p {
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* Delete section */
+    .delete-box {
+      background: var(--gold-dim);
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      border-radius: var(--radius);
+      padding: 28px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .delete-box-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .delete-box p {
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .delete-link {
+      display: inline-block;
+      background: var(--gold);
+      color: #1A0E00;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 11px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      letter-spacing: 0.1px;
+    }
+
+    .delete-link:hover {
+      opacity: 0.9;
+    }
+
+    .delete-note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Security row */
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .security-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .security-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--purple);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .security-item-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .security-item-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--purple-light);
+      margin-bottom: 4px;
+    }
+
+    .footer-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer a {
+      color: var(--purple-light);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 540px) {
+      .header h1 { font-size: 24px; }
+      .section-title { font-size: 17px; }
+      .container { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-badge">
+      <div class="logo-icon">
+        <!-- Trophy icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 9H4a2 2 0 0 1-2-2V5h4M18 9h2a2 2 0 0 0 2-2V5h-4M12 17v4M8 21h8M7 9a5 5 0 0 0 10 0V3H7v6z"/>
+        </svg>
+      </div>
+      <span class="logo-name">Plinth</span>
+    </div>
+    <h1>Privacy Policy</h1>
+    <p class="header-sub">Last updated: <span>June 24, 2026</span></p>
+  </header>
+
+  <!-- Quick nav -->
+  <nav class="nav-strip" aria-label="Sections">
+    <a href="#data-collected">Data Collected</a>
+    <a href="#how-we-use">How We Use It</a>
+    <a href="#third-parties">Third Parties</a>
+    <a href="#security">Security</a>
+    <a href="#your-rights">Your Rights</a>
+    <a href="#guest">Guest Accounts</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main class="container">
+
+    <!-- Intro -->
+    <div class="highlight" style="margin-bottom: 40px;">
+      <p>Plinth ("we", "us", or "our") is committed to protecting your privacy. This policy explains what data we collect when you use the Plinth app, why we collect it, and how you can control it. By using Plinth, you agree to this policy.</p>
+    </div>
+
+    <!-- 1. Data Collected -->
+    <section class="section" id="data-collected">
+      <span class="section-anchor"></span>
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <h2 class="section-title">Data We Collect</h2>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-label">Account</div>
+          <ul>
+            <li>Email address</li>
+            <li>Display name</li>
+            <li>Password (hashed)</li>
+            <li>Bio (optional)</li>
+            <li>Profile &amp; cover photo URLs (optional)</li>
+          </ul>
+        </div>
+        <div class="data-card">
+          <div class="data-card-label">Gaming Data</div>
+          <ul>
+            <li>Achievements &amp; trophies</li>
+            <li>Game library &amp; completion</li>
+            <li>Platinum trophies</li>
+            <li>XP &amp; level progression</li>
+            <li>Collection status per game</li>
+          </ul>
+        </div>
+        <div class="data-card">
+          <div class="data-card-label">User Content</div>
+          <ul>
+            <li>Game reviews &amp; ratings</li>
+            <li>Favorite game showcase</li>
+            <li>Profile visibility settings</li>
+          </ul>
+        </div>
+        <div class="data-card">
+          <div class="data-card-label">Technical</div>
+          <ul>
+            <li>Session tokens (encrypted)</li>
+            <li>Security audit events (IP, login attempts)</li>
+            <li>Sync job status per platform</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <p><strong style="color:var(--text)">What we do NOT collect:</strong> location data, device contacts, camera or microphone access, biometric data, phone number, date of birth, or any advertising identifiers. Our Android app requests only the <code style="background:var(--bg-card-2);color:var(--purple-light);padding:2px 6px;border-radius:4px;font-size:13px">INTERNET</code> permission.</p>
+      </div>
+    </section>
+
+    <!-- 2. Platform Linking -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <h2 class="section-title">Linked Gaming Platforms</h2>
+      </div>
+      <div class="card">
+        <p>When you link your gaming accounts, Plinth connects to the following platforms to sync your achievements and library. Platform credentials (tokens) are stored encrypted on our servers and are never shared with third parties.</p>
+        <div class="platform-row">
+          <span class="badge badge-ps">⬡ PlayStation Network</span>
+          <span class="badge badge-xbox">⬡ Xbox / Microsoft</span>
+          <span class="badge badge-steam">⬡ Steam / Valve</span>
+        </div>
+        <p style="margin-top: 14px;">You can unlink any platform at any time from your profile settings. Unlinking removes your stored credentials immediately.</p>
+      </div>
+    </section>
+
+    <!-- 3. How We Use Data -->
+    <section class="section" id="how-we-use">
+      <span class="section-anchor"></span>
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h2 class="section-title">How We Use Your Data</h2>
+      </div>
+      <div class="card">
+        <ul>
+          <li>Create and manage your Plinth account</li>
+          <li>Sync your gaming achievements, trophies, and progress from linked platforms</li>
+          <li>Display your gaming profile, collection, and portfolio to you and (optionally) other users</li>
+          <li>Calculate your XP, level, and gamification stats</li>
+          <li>Show your activity in the social feed and "Friends Activity" section</li>
+          <li>Secure your account (rate limiting, session management, audit logging)</li>
+          <li>Enable password reset and account recovery</li>
+          <li>Display affiliate offers for games you play (see Third Parties below)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p>We do not sell your personal data. We do not use your data for targeted advertising. We do not build advertising profiles.</p>
+      </div>
+    </section>
+
+    <!-- 4. Third Parties -->
+    <section class="section" id="third-parties">
+      <span class="section-anchor"></span>
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h2 class="section-title">Third-Party Services</h2>
+      </div>
+
+      <div class="card" style="margin-bottom:12px">
+        <p style="margin-bottom:14px"><strong style="color:var(--text)">Gaming Platforms (Sony, Microsoft, Valve)</strong></p>
+        <p>Connecting a gaming account requires authenticating with Sony (PlayStation), Microsoft (Xbox), or Valve (Steam). These connections are subject to each platform's own privacy policy. Plinth stores only the encrypted session token needed to sync your data — never your platform password.</p>
+      </div>
+
+      <div class="card">
+        <p style="margin-bottom:14px"><strong style="color:var(--text)">Affiliate Partners</strong></p>
+        <p>Plinth displays labeled affiliate links for game keys and accounts from the following marketplaces:</p>
+        <div class="platform-row" style="margin-top:12px; margin-bottom:14px">
+          <span class="badge badge-affiliate">Instant Gaming — Affiliate link</span>
+          <span class="badge badge-affiliate">G2A — Affiliate marketplace</span>
+        </div>
+        <p>When you click an affiliate link, a randomly generated click ID and a one-way hashed version of your user ID (SHA-256, first 24 characters) are passed to the partner as a tracking parameter (<code style="background:var(--bg-card-2);color:var(--purple-light);padding:2px 6px;border-radius:4px;font-size:13px">subId</code>). This allows commission attribution. No other personal data (email, name, IP) is shared with affiliate partners. Affiliate links are always clearly labeled in the app.</p>
+      </div>
+    </section>
+
+    <!-- 5. Security -->
+    <section class="section" id="security">
+      <span class="section-anchor"></span>
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h2 class="section-title">Security</h2>
+      </div>
+
+      <div class="security-grid">
+        <div class="security-item">
+          <div class="security-dot"></div>
+          <div>
+            <div class="security-item-title">Encrypted in transit</div>
+            <div class="security-item-desc">All communication between the app and our servers uses HTTPS (TLS).</div>
+          </div>
+        </div>
+        <div class="security-item">
+          <div class="security-dot"></div>
+          <div>
+            <div class="security-item-title">Encrypted at rest</div>
+            <div class="security-item-desc">Platform session tokens are encrypted before being stored in our database.</div>
+          </div>
+        </div>
+        <div class="security-item">
+          <div class="security-dot"></div>
+          <div>
+            <div class="security-item-title">Hashed passwords</div>
+            <div class="security-item-desc">Passwords are never stored in plaintext — only a secure one-way hash is kept.</div>
+          </div>
+        </div>
+        <div class="security-item">
+          <div class="security-dot"></div>
+          <div>
+            <div class="security-item-title">Secure local storage</div>
+            <div class="security-item-desc">On-device session tokens use <code style="font-size:12px">flutter_secure_storage</code> (system keychain).</div>
+          </div>
+        </div>
+        <div class="security-item">
+          <div class="security-dot"></div>
+          <div>
+            <div class="security-item-title">Rate limiting</div>
+            <div class="security-item-desc">Authentication endpoints are rate-limited to prevent brute force attacks.</div>
+          </div>
+        </div>
+        <div class="security-item">
+          <div class="security-dot"></div>
+          <div>
+            <div class="security-item-title">Audit logging</div>
+            <div class="security-item-desc">Security-relevant events (login, password change, sessions revoked) are logged.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Guest Accounts -->
+    <section class="section" id="guest">
+      <span class="section-anchor"></span>
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h2 class="section-title">Guest Accounts</h2>
+      </div>
+      <div class="card">
+        <p>Plinth offers a 7-day guest trial. A guest account requires only a display name — no email address or password. Guest account data is automatically deleted after the 7-day trial period expires unless you convert to a full account by adding an email and password.</p>
+        <p>Guest accounts are subject to the same data practices described in this policy.</p>
+      </div>
+    </section>
+
+    <!-- 7. Retention -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h2 class="section-title">Data Retention</h2>
+      </div>
+      <div class="card">
+        <p>We keep your data for as long as your account is active. When you delete your account, your personal data (email, display name, bio, reviews, linked platform tokens, and collection data) is permanently deleted from our systems. Anonymized security audit logs may be retained for a short period for fraud prevention purposes.</p>
+      </div>
+    </section>
+
+    <!-- 8. Your Rights -->
+    <section class="section" id="your-rights">
+      <span class="section-anchor"></span>
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h2 class="section-title">Your Rights</h2>
+      </div>
+      <div class="card" style="margin-bottom:12px">
+        <ul>
+          <li><strong style="color:var(--text)">Access</strong> — You can view all data in your profile at any time.</li>
+          <li><strong style="color:var(--text)">Correction</strong> — You can update your display name, bio, and avatar in profile settings.</li>
+          <li><strong style="color:var(--text)">Deletion</strong> — You can request full deletion of your account and data at any time.</li>
+          <li><strong style="color:var(--text)">Portability</strong> — Contact us to request an export of your data.</li>
+          <li><strong style="color:var(--text)">Unlinking</strong> — You can disconnect PlayStation, Xbox, or Steam at any time from your settings.</li>
+        </ul>
+      </div>
+
+      <div class="delete-box">
+        <div class="delete-box-title">Request Account Deletion</div>
+        <p>Send us an email with the subject line "Account Deletion Request" and the email address associated with your Plinth account. We will process your request within 30 days.</p>
+        <a class="delete-link" href="mailto:vaycepro@gmail.com?subject=Account%20Deletion%20Request">vaycepro@gmail.com</a>
+        <p class="delete-note">You can also revoke all sessions from Account Settings → Security → Revoke All Sessions.</p>
+      </div>
+    </section>
+
+    <!-- 9. Children -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h2 class="section-title">Children's Privacy</h2>
+      </div>
+      <div class="card">
+        <p>Plinth is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us personal data, please contact us and we will delete it promptly.</p>
+      </div>
+    </section>
+
+    <!-- 10. Changes -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <h2 class="section-title">Changes to This Policy</h2>
+      </div>
+      <div class="card">
+        <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically. Continued use of Plinth after changes constitutes acceptance of the updated policy.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <span class="section-anchor"></span>
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <div class="highlight">
+        <p>For any privacy-related questions, data requests, or account deletion, please contact us at:</p>
+        <p style="margin-top:12px">
+          <a href="mailto:vaycepro@gmail.com" style="color:var(--purple-light);font-weight:600;font-size:16px;text-decoration:none">vaycepro@gmail.com</a>
+        </p>
+        <p style="margin-top:8px">We aim to respond to all privacy requests within 30 days.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-name">Plinth</div>
+    <div class="footer-sub">
+      &copy; 2026 Plinth. All rights reserved. &nbsp;·&nbsp;
+      <a href="mailto:vaycepro@gmail.com">vaycepro@gmail.com</a>
+    </div>
+  </footer>
+
+</body>
+</html>
